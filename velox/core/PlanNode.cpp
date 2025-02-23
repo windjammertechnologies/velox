@@ -1407,7 +1407,7 @@ PlanNodePtr HashJoinNode::create(const folly::dynamic& obj, void* context) {
 
   TypedExprPtr filter;
   if (obj.count("filter")) {
-    filter = ISerializable::deserialize<ITypedExpr>(obj["filter"]);
+    filter = ISerializable::deserialize<ITypedExpr>(obj["filter"], context);
   }
 
   auto outputType = deserializeRowType(obj["outputType"]);
