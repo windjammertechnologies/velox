@@ -248,6 +248,7 @@ TEST(VariantTest, serialize) {
   testSerDe(variant((int16_t)1234));
   testSerDe(variant((int32_t)12345));
   testSerDe(variant((int64_t)1234567));
+  testSerDe(variant(static_cast<int128_t>(10000000000000000000ULL) * 1000ULL));
   testSerDe(variant((float)1.2));
   testSerDe(variant((double)1.234));
   testSerDe(variant("This is a test."));
