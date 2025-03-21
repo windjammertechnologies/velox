@@ -1350,7 +1350,7 @@ class LocalPartitionNode : public PlanNode {
 
     for (auto i = 1; i < sources_.size(); ++i) {
       VELOX_USER_CHECK(
-          *sources_[i]->outputType() == *sources_[0]->outputType(),
+          sources_[i]->outputType()->equivalent(*sources_[0]->outputType()),
           "All sources of the LocalPartitionedNode must have the same output type: {} vs. {}.",
           sources_[i]->outputType()->toString(),
           sources_[0]->outputType()->toString());
